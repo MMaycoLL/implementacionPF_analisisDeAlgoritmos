@@ -48,5 +48,4 @@ public class SequentialBlockIII implements AlgoritmoMultiplicacion {
         }
         return C;
     }
-
 }

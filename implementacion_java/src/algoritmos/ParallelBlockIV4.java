@@ -82,5 +82,4 @@ public class ParallelBlockIV4 implements AlgoritmoMultiplicacion {
             }
         }
     }
-
 }

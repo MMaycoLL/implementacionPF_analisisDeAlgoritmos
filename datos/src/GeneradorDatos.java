@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class GeneradorDatos {
 
-    private static final int LONGITUD_ARREGLO = 100; // Longitud de la matriz
+    private static final int LONGITUD_ARREGLO = 600; // Longitud de la matriz
 
     private static void guardarDatosEnArchivo(int[][] matriz, String nombreArchivo) throws IOException {
         // Asegúrate de que el directorio existe
@@ -48,8 +48,8 @@ public class GeneradorDatos {
             int[][] datosAleatorios1 = generarMatrizAleatoria();
             int[][] datosAleatorios2 = generarMatrizAleatoria();
             // Guardar los datos en un archivo de texto
-            guardarDatosEnArchivo(datosAleatorios1, "datos/src/datos_generados1.txt");
-            guardarDatosEnArchivo(datosAleatorios2, "datos/src/datos_generados2.txt");
+            guardarDatosEnArchivo(datosAleatorios1, "datos/src/matriz_1.txt");
+            guardarDatosEnArchivo(datosAleatorios2, "datos/src/matriz_2.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }

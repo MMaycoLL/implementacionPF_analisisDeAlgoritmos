@@ -42,32 +42,4 @@ public class SequentialBlockIV implements AlgoritmoMultiplicacion {
         }
         return C;
     }
-
-    // Método para convertir BigInteger[] a int[]
-    private int[][] convertBigIntegerArrayToDoubleArray(BigInteger[][] bigIntArray) {
-        int[][] doubleArray = new int[bigIntArray.length][bigIntArray.length];
-        for (int i = 0; i < bigIntArray.length; i++) {
-            for (int j = 0; j < bigIntArray.length; j++) {
-                doubleArray[i][j] = bigIntArray[i][j].intValue();
-            }
-        }
-        return doubleArray;
-    }
-
-    // Método para convertir int[] a BigInteger
-    private BigInteger[][] convertDoubleArrayToBigInteger(int[][] doubleArray) {
-        int rows = doubleArray.length;
-        int cols = doubleArray[0].length;
-        BigInteger[][] bigIntegerArray = new BigInteger[rows][cols];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                // Convierte cada número decimal a BigInteger y almacénalo en la matriz
-                // resultante
-                bigIntegerArray[i][j] = BigInteger.valueOf(doubleArray[i][j]);
-            }
-        }
-
-        return bigIntegerArray;
-    }
 }

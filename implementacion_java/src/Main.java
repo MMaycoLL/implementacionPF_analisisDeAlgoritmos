@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Main extends JFrame {
-    private static final String FILE_PATH1 = "datos/src/datos_generados1.txt";
-    private static final String FILE_PATH2 = "datos/src/datos_generados2.txt";
+    private static final String FILE_PATH1 = "datos/src/matriz_1.txt";
+    private static final String FILE_PATH2 = "datos/src/matriz_2.txt";
 
     public Main(BigInteger[][] matriz1, BigInteger[][] matriz2) {
         super("Tiempos de Ejecución");

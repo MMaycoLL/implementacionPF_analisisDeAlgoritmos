@@ -109,5 +109,4 @@ public class StrassenWinograd implements AlgoritmoMultiplicacion {
         }
         return C;
     }
-
 }

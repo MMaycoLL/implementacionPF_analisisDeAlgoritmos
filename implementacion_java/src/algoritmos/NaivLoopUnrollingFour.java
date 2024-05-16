@@ -95,5 +95,4 @@ public class NaivLoopUnrollingFour implements AlgoritmoMultiplicacion {
         }
         return matrizC;
     }
-
 }

@@ -86,5 +86,4 @@ public class WinogradOriginal implements AlgoritmoMultiplicacion {
         }
         return matrizC;
     }
-
 }

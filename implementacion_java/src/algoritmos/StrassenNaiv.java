@@ -106,5 +106,4 @@ public class StrassenNaiv implements AlgoritmoMultiplicacion {
         }
         return C;
     }
-
 }
