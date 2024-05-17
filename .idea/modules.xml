@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/datos/datos.iml" filepath="$PROJECT_DIR$/datos/datos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/implementacionPF_analisisDeAlgoritmos.iml" filepath="$PROJECT_DIR$/.idea/implementacionPF_analisisDeAlgoritmos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/implementacion_java/implementacion_java.iml" filepath="$PROJECT_DIR$/implementacion_java/implementacion_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/implementacion_kotlin/implementacion_kotlin.iml" filepath="$PROJECT_DIR$/implementacion_kotlin/implementacion_kotlin.iml" />
+    </modules>
+  </component>
+</project>
