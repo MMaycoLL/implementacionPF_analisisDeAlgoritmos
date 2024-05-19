@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class GeneradorDatos {
 
-    private static final int LONGITUD_ARREGLO = 600; // Longitud de la matriz
+    private static final int LONGITUD_ARREGLO = 1500; // Longitud de la matriz
 
     private static void guardarDatosEnArchivo(int[][] matriz, String nombreArchivo) throws IOException {
         // Asegúrate de que el directorio existe
@@ -29,7 +29,7 @@ public class GeneradorDatos {
 
     private static int generarNumeroAleatorioDeSeisDigitos() {
         Random rand = new Random();
-        // Generar un número de ocho dígitos (10000000 a 99999999)
+        // Generar un número de Seis dígitos (100000 a 999999)
         return 100000 + rand.nextInt(900000);
     }
 

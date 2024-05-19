@@ -32,15 +32,13 @@ object FileUtil {
     @JvmStatic
     fun guardarTiemposEnArchivo(tiempos: Array<AlgoritmoTiempo?>, nombreArchivo: String) {
         try {
-            BufferedWriter(FileWriter(nombreArchivo, true)).use { bw ->
+            BufferedWriter(FileWriter(nombreArchivo)).use { bw ->
                 for (tiempo in tiempos) {
                     if (tiempo != null) {
-                        bw.write(" ${tiempo.nombre}: ${tiempo.tiempo} ms")
+                        bw.write("${tiempo.nombre}: ${tiempo.tiempo} ms")
                     }
                     bw.newLine()
                 }
-                bw.newLine()
-                bw.newLine()
                 println("Tiempos de ejecución guardados en el archivo '$nombreArchivo'.")
             }
         } catch (e: IOException) {

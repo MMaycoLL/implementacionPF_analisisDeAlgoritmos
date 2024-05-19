@@ -29,13 +29,11 @@ public class FileUtil {
     }
 
     public static void guardarTiemposEnArchivo(AlgoritmoTiempo[] tiempos, String nombreArchivo) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo, true))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo))) {
             for (AlgoritmoTiempo tiempo : tiempos) {
-                bw.write(" " + tiempo.getNombre() + ": " + tiempo.getTiempo() + " ms");
+                bw.write(tiempo.getNombre() + ": " + tiempo.getTiempo() + " ms");
                 bw.newLine();
             }
-            bw.newLine();
-            bw.newLine();
             System.out.println("Tiempos de ejecución guardados en el archivo '" + nombreArchivo + "'.");
         } catch (IOException e) {
             e.printStackTrace();
