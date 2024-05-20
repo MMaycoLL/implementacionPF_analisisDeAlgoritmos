@@ -21,31 +21,27 @@ public class SequentialBlockV3 implements AlgoritmoMultiplicacion {
     }
 
     public int[][] sequentialBlock_V3(int[][] A, int[][] B, int block_size) {
-        int n = A.length;
-        int[][] C = new int[n][n];
+        int n = A.length; // Tamaño de la matriz (se asume que es cuadrada)
+        int[][] C = new int[n][n]; // Matriz de resultado
 
         // Recorre las matrices en bloques de tamaño block_size
-        for (int i = 0; i < n; i += block_size) {
-            for (int j = 0; j < n; j += block_size) {
-                for (int k = 0; k < n; k += block_size) {
+        for (int i = 0; i < n; i += block_size) { // Recorrido por filas con incrementos de tamaño block_size
+            for (int j = 0; j < n; j += block_size) { // Recorrido por columnas con incrementos de tamaño block_size
+                for (int k = 0; k < n; k += block_size) { // Recorrido para la multiplicación de bloques
                     // Multiplica los bloques de matrices
-//	                for (int ii = i; ii < Math.min(i + block_size, n); ii++) {
-                    for (int ii = i; ii < i + block_size && ii < n; ii++) {
-
-//	                    for (int jj = j; jj < Math.min(j + block_size, n); jj++) {
-                        for (int jj = j; jj < j + block_size && ii < n; jj++) {
-
-//	                        for (int kk = k; kk < Math.min(k + block_size, n); kk++) {
-                            for (int kk = k; kk < k + block_size && k < n; kk++) {
-
-                                C[kk][ii] += A[kk][jj] * B[jj][ii];
-
+                    for (int ii = i; ii < i + block_size && ii < n; ii++) { // Recorrido por filas dentro del bloque
+                        for (int jj = j; jj < j + block_size && jj < n; jj++) { // Recorrido por columnas dentro del bloque
+                            for (int kk = k; kk < k + block_size && kk < n; kk++) { // Recorrido para la multiplicación de elementos dentro del bloque
+                                // Realiza la multiplicación del bloque actual y acumula el resultado en la matriz C
+                                C[ii][jj] += A[ii][kk] * B[kk][jj];
                             }
                         }
                     }
                 }
             }
         }
-        return C;
+
+        return C; // Devolver la matriz de resultado
     }
+
 }

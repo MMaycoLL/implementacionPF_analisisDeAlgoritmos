@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class GeneradorDatos {
 
-    private static final int LONGITUD_ARREGLO = 1500; // Longitud de la matriz
+    private static final int LONGITUD_ARREGLO = 4; // Longitud de la matriz
 
     private static void guardarDatosEnArchivo(int[][] matriz, String nombreArchivo) throws IOException {
         // Asegúrate de que el directorio existe

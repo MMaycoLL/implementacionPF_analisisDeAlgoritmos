@@ -65,7 +65,7 @@ public class App extends Application {
         barChart.setCategoryGap(6); // Espacio entre las categorías
 
         // Factor de escala para ajustar los valores
-        double scaleFactor = 4;  // Ajusta este valor según sea necesario
+        double scaleFactor =1;  // Ajusta este valor según sea necesario
 
         // Crear las series de datos
         XYChart.Series<String, Number> series1 = new XYChart.Series<>();
@@ -118,7 +118,7 @@ public class App extends Application {
 
         // Alinear y ajustar la posición de la etiqueta
         StackPane.setAlignment(label, Pos.TOP_CENTER);
-        StackPane.setMargin(label, new Insets(-20, -20, -40, -20));
+        StackPane.setMargin(label, new Insets(-15, -20, -50, -40));
 
         barNode.getChildren().add(label);
 

@@ -21,7 +21,7 @@ public class ChartUtil {
         }
 
         JFreeChart chart = ChartFactory.createBarChart(
-                "Comparación de Tiempos de Ejecución",
+                "Comparación de Tiempos de Ejecución JAVA",
                 "Algoritmos",
                 "Tiempo de Ejecución (ms)",
                 dataset

@@ -20,29 +20,28 @@ public class NaivOnArray implements AlgoritmoMultiplicacion {
         convertidor.convertDoubleArrayToBigInteger(doubleResultado);
     }
 
-    /**
-     * Método para multiplicar dos matrices usando el método NaivOnArray
-     *
-     * @param matrizA primera matriz
-     * @param matrizB segunda matriz
-     * @return matrizC matriz resultado de la multiplicación entre A y B
-     */
     public double[][] multiplicarNaivOnArray(double[][] matrizA, double[][] matrizB) {
-
-        int m = matrizA.length;
-        int n = matrizB[0].length;
+        // Obtener las dimensiones de las matrices de entrada
+        int m = matrizA.length; // Número de filas de la matriz A
+        int n = matrizB[0].length; // Número de columnas de la matriz B
+        // Crear una matriz para almacenar el resultado de la multiplicación
         double[][] matrizC = new double[m][n];
 
+        // Iterar sobre las filas de la matriz A
         for (int i = 0; i < m; i++) {
-
+            // Iterar sobre las columnas de la matriz B
             for (int j = 0; j < n; j++) {
                 int suma = 0;
+                // Iterar sobre las dimensiones internas de las matrices A y B
                 for (int k = 0; k < matrizA[0].length; k++) {
+                    // Calcular el producto de los elementos correspondientes y sumar al resultado
                     suma += matrizA[i][k] * matrizB[k][j];
                 }
+                // Asignar la suma al elemento correspondiente en la matriz resultado
                 matrizC[i][j] = suma;
             }
         }
+        // Devolver la matriz resultado
         return matrizC;
     }
 }

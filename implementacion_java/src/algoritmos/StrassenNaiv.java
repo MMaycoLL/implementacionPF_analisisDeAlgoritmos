@@ -21,15 +21,16 @@ public class StrassenNaiv implements AlgoritmoMultiplicacion {
     }
 
     public int[][] strassenNaiv(int[][] A, int[][] B, int threshold) {
-        int n = A.length;
-        int[][] C = new int[n][n];
+        int n = A.length; // Tamaño de la matriz (se asume que es cuadrada)
+        int[][] C = new int[n][n]; // Matriz de resultado
 
+        // Umbral para usar el algoritmo tradicional de multiplicación de matrices
         if (n <= threshold) {
-            // Multiplicación Naive
+            // Multiplicación tradicional
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     for (int k = 0; k < n; k++) {
-                        C[i][j] += A[i][k] * B[k][j];
+                        C[i][j] += A[i][k] * B[k][j]; // Sumar el producto de los elementos correspondientes
                     }
                 }
             }
@@ -43,6 +44,8 @@ public class StrassenNaiv implements AlgoritmoMultiplicacion {
             int[][] B12 = new int[n / 2][n / 2];
             int[][] B21 = new int[n / 2][n / 2];
             int[][] B22 = new int[n / 2][n / 2];
+
+            // Copiar los elementos a las submatrices correspondientes
             for (int i = 0; i < n / 2; i++) {
                 for (int j = 0; j < n / 2; j++) {
                     A11[i][j] = A[i][j];
@@ -82,28 +85,31 @@ public class StrassenNaiv implements AlgoritmoMultiplicacion {
             }
         }
 
-        return C;
+        return C; // Devolver la matriz de resultado
     }
 
+    // Método para sumar dos matrices
     public int[][] add(int[][] A, int[][] B) {
-        int n = A.length;
-        int[][] C = new int[n][n];
+        int n = A.length; // Tamaño de las matrices
+        int[][] C = new int[n][n]; // Matriz de resultado
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                C[i][j] = A[i][j] + B[i][j];
+                C[i][j] = A[i][j] + B[i][j]; // Sumar los elementos correspondientes
             }
         }
-        return C;
+        return C; // Devolver la matriz de suma
     }
 
+    // Método para restar dos matrices
     public int[][] subtract(int[][] A, int[][] B) {
-        int n = A.length;
-        int[][] C = new int[n][n];
+        int n = A.length; // Tamaño de las matrices
+        int[][] C = new int[n][n]; // Matriz de resultado
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                C[i][j] = A[i][j] - B[i][j];
+                C[i][j] = A[i][j] - B[i][j]; // Restar los elementos correspondientes
             }
         }
-        return C;
+        return C; // Devolver la matriz de resta
     }
 }
+

@@ -20,7 +20,7 @@ object ChartUtil {
         }
 
         val chart = ChartFactory.createBarChart(
-            "Comparación de Tiempos de Ejecución",
+            "Comparación de Tiempos de Ejecución KOTLIN",
             "Algoritmos",
             "Tiempo de Ejecución (ms)",
             dataset

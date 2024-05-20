@@ -20,15 +20,10 @@ public class SequentialBlockIII implements AlgoritmoMultiplicacion {
         convertidor.convertIntArrayToBigInteger(doubleResultado);
     }
 
-    /**
-     * @param A          matriz
-     * @param B          matriz
-     * @param block_size tamaño del bloque
-     * @return matriz resultante de la multiplicación
-     */
+    // Método para multiplicar dos matrices en bloques con un tamaño de bloque específico
     public int[][] sequentialBlockIII3(int[][] A, int[][] B, int block_size) {
         int n = A.length;
-        int[][] C = new int[n][n];
+        int[][] C = new int[n][n]; // Matriz para almacenar el resultado
 
         // Recorre las matrices en bloques de tamaño block_size
         for (int i = 0; i < n; i += block_size) {
@@ -36,16 +31,16 @@ public class SequentialBlockIII implements AlgoritmoMultiplicacion {
                 for (int k = 0; k < n; k += block_size) {
                     // Multiplica los bloques de matrices
                     for (int ii = i; ii < i + block_size && ii < n; ii++) {
-                        for (int jj = j; jj < j + block_size && ii < n; jj++) {
-                            for (int kk = k; kk < k + block_size && k < n; kk++) {
-                                C[ii][jj] += A[ii][kk] * B[kk][jj];
-
+                        for (int jj = j; jj < j + block_size && jj < n; jj++) {
+                            for (int kk = k; kk < k + block_size && kk < n; kk++) {
+                                C[ii][jj] += A[ii][kk] * B[kk][jj]; // Actualiza la celda correspondiente en C
                             }
                         }
                     }
                 }
             }
         }
-        return C;
+        return C; // Devuelve el resultado de la multiplicación de matrices
     }
+
 }

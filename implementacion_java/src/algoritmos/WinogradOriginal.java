@@ -20,70 +20,69 @@ public class WinogradOriginal implements AlgoritmoMultiplicacion {
         convertidor.convertIntArrayToBigInteger(doubleResultado);
     }
 
-    /**
-     * Permite multiplicar dos matrices mediante el método WinogradOriginal
-     *
-     * @param matrizA primera matriz
-     * @param matrizB segunda matriz
-     * @return matrizC matriz resultado de la multiplicación entre A y B
-     */
     public int[][] multiplicarWinogradOriginal(int[][] matrizA, int[][] matrizB) {
-        int N = matrizA.length;
-        int P = matrizA[0].length;
-        int M = matrizB[0].length;
-        int[][] matrizC = new int[N][M];
-        int[] y = new int[M];
-        int[] z = new int[N];
+        int N = matrizA.length; // Número de filas de A
+        int P = matrizA[0].length; // Número de columnas de A (y filas de B)
+        int M = matrizB[0].length; // Número de columnas de B
+        int[][] matrizC = new int[N][M]; // Matriz de resultado
+        int[] y = new int[M]; // Vector de factores de fila
+        int[] z = new int[N]; // Vector de factores de columna
 
-        int aux;
-        int upsilon = P % 2;
-        int gamma = P - upsilon;
+        int aux; // Variable auxiliar para acumulaciones
+        int upsilon = P % 2; // Determina si P es par o impar
+        int gamma = P - upsilon; // Ajusta gamma para manejar pares
 
         int i, j, k;
 
+        // Precalcular los factores de filas
         for (i = 0; i < M; i++) {
             aux = 0;
             for (j = 0; j < gamma; j += 2) {
-                aux += matrizA[i][j] * matrizA[i][j + 1];
+                aux += matrizA[i][j] * matrizA[i][j + 1]; // Sumar productos de pares de elementos en la fila
             }
             y[i] = aux;
         }
+
+        // Precalcular los factores de columnas
         for (i = 0; i < N; i++) {
             aux = 0;
             for (j = 0; j < gamma; j += 2) {
-                aux += matrizB[j][i] * matrizB[j + 1][i];
+                aux += matrizB[j][i] * matrizB[j + 1][i]; // Sumar productos de pares de elementos en la columna
             }
             z[i] = aux;
         }
-        if (upsilon == 1) {
+
+        if (upsilon == 1) { // Si P es impar
             /*
-             * P is odd The value matrizA[i][P]*matrizB[P][k] is missing in all auxiliary
-             * sums.
+             * Si P es impar, falta el término matrizA[i][P] * matrizB[P][k] en todas las sumas auxiliares.
              */
-            int PP = P - 1;
+            int PP = P - 1; // Última posición válida de los índices
             for (i = 0; i < M; i++) {
                 for (k = 0; k < N; k++) {
                     aux = 0;
                     for (j = 0; j < gamma; j += 2) {
-                        aux += (matrizA[i][j] + matrizB[j + 1][k]) * (matrizA[i][j + 1] + matrizB[j][k]);
+                        aux += (matrizA[i][j] + matrizB[j + 1][k]) * (matrizA[i][j + 1] + matrizB[j][k]); // Producto ajustado
                     }
-                    matrizC[i][k] = aux - y[i] - z[k] + matrizA[i][PP] * matrizB[PP][k];
+                    matrizC[i][k] = aux - y[i] - z[k] + matrizA[i][PP] * matrizB[PP][k]; // Ajustar el término faltante
                 }
             }
-        } else {
+        } else { // Si P es par
             /*
-             * P is even The result can be computed with the auxiliary sums.
+             * Si P es par, el resultado se puede calcular directamente con las sumas auxiliares.
              */
             for (i = 0; i < M; i++) {
                 for (k = 0; k < N; k++) {
                     aux = 0;
                     for (j = 0; j < gamma; j += 2) {
-                        aux += (matrizA[i][j] + matrizB[j + 1][k]) * (matrizA[i][j + 1] + matrizB[j][k]);
+                        aux += (matrizA[i][j] + matrizB[j + 1][k]) * (matrizA[i][j + 1] + matrizB[j][k]); // Producto ajustado
                     }
-                    matrizC[i][k] = aux - y[i] - z[k];
+                    matrizC[i][k] = aux - y[i] - z[k]; // Usar las sumas auxiliares
                 }
             }
         }
+
+        // Devolver la matriz resultado
         return matrizC;
     }
 }
+
